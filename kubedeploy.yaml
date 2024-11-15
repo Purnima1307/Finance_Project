@@ -1,37 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: loksai-eta-deploy
+  name: bankapp-eta-deploy
   labels:
-    app: loksai-eta-deploy-lbl
+    app: bankapp-eta-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: loksai-eta-app
+      app: bankapp-eta-app
   template:
     metadata:
       labels:
-        app: loksai-eta-app
+        app: bankapp-eta-app
     spec:
       containers:
-      - name: loksai-eta-container
-        image: purnimab1307/pb-de-webapp
+      - name: bankapp-eta-container
+        image: purnimab1307/bankapp-eta-app
         ports:
-        - containerPort: 8080
+        - containerPort: 8082
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: loksai-eta-np-service
+  name: bankapp-eta-np-service
   labels:
-    app: loksai-eta-app
+    app: bankapp-eta-app
 spec:
   selector:
-    app: loksai-eta-deploy-lbl
+    app: bankapp-eta-app
 
   type: NodePort
   ports:
-  - nodePort: 31028
-    port: 8080
-    targetPort: 8080
+  - nodePort: 31030  
+    port: 8082
+    targetPort: 8082
