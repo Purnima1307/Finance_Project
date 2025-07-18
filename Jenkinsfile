@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Stage1: checkout the code from github'){
             steps{
-                 git url: 'https://github.com/Skurve-DevOps/Finance_Project/'
+                 git url: 'https://github.com/Purnima1307/Finance_Project/'
                  echo 'github url checkout'
             }
         }
